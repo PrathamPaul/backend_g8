@@ -1,0 +1,381 @@
+Microsoft Windows [Version 10.0.22631.4037]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Lenovo>mongosh
+Current Mongosh Log ID: 66d02ce4f2bd1bc7252710bb
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.0
+Using MongoDB:          7.0.9
+Using Mongosh:          2.3.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-08-29T09:19:59.242+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use Chitkara
+switched to db Chitkara
+Chitkara> show dbs
+admin      40.00 KiB
+chitkara  224.00 KiB
+config    108.00 KiB
+local     152.00 KiB
+Chitkara> use chitkara
+switched to db chitkara
+chitkara> db.user.find()
+
+chitkara> db.User.find()
+[
+  {
+    _id: ObjectId('66cee77d89ea201b602710bc'),
+    name: 'Pratham',
+    age: Long('19'),
+    marks: Long('100'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710bd'),
+    name: 'piyush',
+    age: Long('20'),
+    marks: Long('90'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710be'),
+    name: 'Prathamvir',
+    age: Long('20'),
+    marks: Long('80'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710bf'),
+    name: 'Pratham',
+    age: Long('16'),
+    marks: Long('20'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c0'),
+    name: 'Pratham',
+    age: Long('19'),
+    marks: Long('100'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c1'),
+    name: 'piyush',
+    age: Long('20'),
+    marks: Long('90'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c2'),
+    name: 'Prathamvir',
+    age: Long('20'),
+    marks: Long('50'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c3'),
+    name: 'Pratham',
+    age: Long('16'),
+    marks: Long('70'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c4'),
+    name: 'Pratham',
+    age: Long('16'),
+    marks: Long('100'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66ceef9089ea201b602710d0'),
+    Date: 'Wed Aug 28 2024 15:06:16 GMT+0530 (India Standard Time)',
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cef00689ea201b602710d1'),
+    Date: ISODate('2024-08-28T09:38:13.999Z'),
+    Subject: 'Data Science'
+  }
+]
+chitkara> db.posts.find({
+...   age: { $gte: 18 },
+...   marks: { $gte: 90 }
+... })
+[
+  {
+    _id: ObjectId('66cee31699616701612710bc'),
+    name: 'Piyush',
+    age: 19,
+    marks: 100,
+    subject: 'science',
+    Subject: 'Data Science'
+  }
+]
+chitkara>  db.posts.find({age: { $gte: 22 } , marks: { $gte: 90 })
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:55)
+
+> 1 |  db.posts.find({age: { $gte: 22 } , marks: { $gte: 90 })
+    |                                                        ^
+  2 |
+
+chitkara> db.posts.find({age: { $gte: 22 } , marks: { $gte: 90 }})
+
+chitkara> db.Users.find({age: { $gte: 22 } , marks: { $gte: 90 }})
+
+chitkara> db.Users.find({age: { $gte: 16 } , marks: { $gte: 90 }})
+
+chitkara> db.User.find({age: { $gte: 22 } , marks: { $gte: 90 }})
+[
+  {
+    _id: ObjectId('66cee77d89ea201b602710bd'),
+    name: 'piyush',
+    age: Long('22'),
+    marks: Long('90'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710bf'),
+    name: 'Pratham',
+    age: Long('22'),
+    marks: Long('100'),
+    Subject: 'Data Science'
+  }
+]
+chitkara> db.User.find({age: { $gte: 18 } , marks: { $gte: 80 }})
+[
+  {
+    _id: ObjectId('66cee77d89ea201b602710bc'),
+    name: 'Pratham',
+    age: Long('19'),
+    marks: Long('100'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710bd'),
+    name: 'piyush',
+    age: Long('22'),
+    marks: Long('90'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710be'),
+    name: 'Prathamvir',
+    age: Long('22'),
+    marks: Long('80'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710bf'),
+    name: 'Pratham',
+    age: Long('22'),
+    marks: Long('100'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c0'),
+    name: 'Pratham',
+    age: Long('19'),
+    marks: Long('100'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c1'),
+    name: 'piyush',
+    age: Long('20'),
+    marks: Long('90'),
+    Subject: 'Data Science'
+  }
+]
+chitkara> db.posts.updateMany({ marks: { $gte: 90 } }, { $set: { grade: "A+" } } )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+chitkara>  db.User.updateMany({ marks: { $gte: 90 } }, { $set: { grade: "A+" } } )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 6,
+  modifiedCount: 6,
+  upsertedCount: 0
+}
+chitkara>  db.User.find()
+[
+  {
+    _id: ObjectId('66cee77d89ea201b602710bc'),
+    name: 'Pratham',
+    age: Long('19'),
+    marks: Long('100'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710bd'),
+    name: 'piyush',
+    age: Long('22'),
+    marks: Long('90'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710be'),
+    name: 'Prathamvir',
+    age: Long('22'),
+    marks: Long('80'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710bf'),
+    name: 'Pratham',
+    age: Long('22'),
+    marks: Long('100'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c0'),
+    name: 'Pratham',
+    age: Long('19'),
+    marks: Long('100'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c1'),
+    name: 'piyush',
+    age: Long('20'),
+    marks: Long('90'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c2'),
+    name: 'Prathamvir',
+    age: Long('20'),
+    marks: Long('50'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c3'),
+    name: 'Pratham',
+    age: Long('16'),
+    marks: Long('70'),
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c4'),
+    name: 'Pratham',
+    age: Long('16'),
+    marks: Long('100'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66ceef9089ea201b602710d0'),
+    Date: 'Wed Aug 28 2024 15:06:16 GMT+0530 (India Standard Time)',
+    Subject: 'Data Science'
+  },
+  {
+    _id: ObjectId('66cef00689ea201b602710d1'),
+    Date: ISODate('2024-08-28T09:38:13.999Z'),
+    Subject: 'Data Science'
+  }
+]
+chitkara> db.User.find({ $and:[ { age: { $gte : 18 } } , { marks: { $gte: 90 }})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:69)
+
+> 1 | db.User.find({ $and:[ { age: { $gte : 18 } } , { marks: { $gte: 90 }})
+    |                                                                      ^
+  2 |
+
+chitkara> ({ $and:[ { age: { $gte : 18 } } , { marks: { $gte: 90 }}]})
+{
+  '$and': [ { age: { '$gte': 18 } }, { marks: { '$gte': 90 } } ]
+}
+chitkara> db.User.find ({ $and:[ { age: { $gte : 18 } } , { marks: { $gte: 90 }}]})
+[
+  {
+    _id: ObjectId('66cee77d89ea201b602710bc'),
+    name: 'Pratham',
+    age: Long('19'),
+    marks: Long('100'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710bd'),
+    name: 'piyush',
+    age: Long('22'),
+    marks: Long('90'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee77d89ea201b602710bf'),
+    name: 'Pratham',
+    age: Long('22'),
+    marks: Long('100'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c0'),
+    name: 'Pratham',
+    age: Long('19'),
+    marks: Long('100'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c1'),
+    name: 'piyush',
+    age: Long('20'),
+    marks: Long('90'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  }
+]
+chitkara>  db.User.find ({ $and:[ { age: { $gte : 18 } } , { age: { $ne: 22 }}]})
+[
+  {
+    _id: ObjectId('66cee77d89ea201b602710bc'),
+    name: 'Pratham',
+    age: Long('19'),
+    marks: Long('100'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c0'),
+    name: 'Pratham',
+    age: Long('19'),
+    marks: Long('100'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c1'),
+    name: 'piyush',
+    age: Long('20'),
+    marks: Long('90'),
+    Subject: 'Data Science',
+    grade: 'A+'
+  },
+  {
+    _id: ObjectId('66cee79b89ea201b602710c2'),
+    name: 'Prathamvir',
+    age: Long('20'),
+    marks: Long('50'),
+    Subject: 'Data Science'
+  }
+]
+chitkara>
